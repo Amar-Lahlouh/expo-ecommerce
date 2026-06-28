@@ -8,3 +8,11 @@ first npm init -y in backend
 8-create .gitignore file w bhet feh node_modules
 .env
 krmal yaamlon ignore
+bruh ala github w bhet create expositery
+w bhet app hunek
+Sevalla
+Full-stack apps, databases, and static sites in one place
+
+sar aandi lproject whd kello demen localhost:3000
+
+so localhost:3000 btkhdne aala la frotnend w iza zedet api h tkhdne al backend
