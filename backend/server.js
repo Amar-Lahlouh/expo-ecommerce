@@ -7,6 +7,7 @@ app.get("/api/health", (req, res) => {
   res.json({ message: "Success" });
 });
 
+//hello
 //make our app ready for deployment
 if (ENV.NODE_ENV === "production") {
   //Any request that is NOT an API route AND NOT a real static file, is sent to index.html.
