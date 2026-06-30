@@ -3,7 +3,7 @@ import path from "path"; //help me to creat file paths like "C:\\Users\\Amar\\pr
 import { ENV } from "./src/config/env.js";
 import { connectDB } from "./src/config/db.js";
 import { clerkMiddleware } from "@clerk/express";
-import inngestHandler from "./api/inngest.js";
+import inngestHandler from "./src/api/inngest.js";
 const app = express();
 const __dirname = path.resolve(); //return path of your current project
 
