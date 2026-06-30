@@ -111,3 +111,5 @@ and in server.js
 import { serve } from "inngest/express";
 import { functions, inngest } from "./src/config/inngest.js";
 app.use("/api/inngest", serve({ client: inngest, functions }));
+
+halaa bruh aala ingesst baaml new application
