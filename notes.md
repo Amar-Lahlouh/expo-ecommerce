@@ -59,6 +59,8 @@ now go to clerk express quickstart and do same as docs
 1-npm install @clerk/express
 2- add the clerkMiddleware and the .emv
 
+for frontend clerk
+
 bruh aa inngest baaml account bruh al keys bjeb sigingkey bhtu bl .env
 
 bruh aa imagekit
@@ -70,3 +72,42 @@ IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_imagekit_id
 bnzl sentrykman get link
 https://dub.sh/sentry-c2
 it is application motinering krmal iza sar aandi errors aw shi b2le huwi
+
+halaa baad m kon hetta clerk blfrontend bde kun am sayyev al user kman bl monodb database kef?
+by using inngest
+bruh awl shi aa clerk = >configure=>webhooks=>add endpoint==>inngest
+baamlo connect w baaml update lal subscribed events
+npw bruh aa innest aala al backend w bchuf docs lal installation
+npm install inngest
+then create model for user
+then writ ethe following code in inngest
+import { Inngest } from "inngest";
+import { connectDB } from "./db.js";
+export const inngest = new Inngest({ id: "ecommerce-app" });
+
+const syncUser = inngest.createFunction(
+{ id: "sync-user" },
+{ event: "clerk/user.created" }, //hun event contain all data for user created in clerk
+async ({ event }) => {
+await connectDB();
+const { id, email_addresses, first_name, last_name, image_url } =
+event.data; //fetch data then create new User
+const newUser = {
+clerkId: id,
+email: email_addresses[0]?.email_address,
+name: `${first_name || ""} ${last_name || ""}` || "User",
+imageUrl: image_url,
+addresses: [],
+wishlist: [],
+};
+
+    await User.create(newUser);
+
+},
+);
+export const functions = [syncUser];
+
+and in server.js
+import { serve } from "inngest/express";
+import { functions, inngest } from "./src/config/inngest.js";
+app.use("/api/inngest", serve({ client: inngest, functions }));
