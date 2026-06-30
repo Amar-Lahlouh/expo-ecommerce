@@ -1,8 +1,13 @@
 import express from "express";
 import path from "path"; //help me to creat file paths like "C:\\Users\\Amar\\project\\admin\\dist"
 import { ENV } from "./src/config/env.js";
+import { connectDB } from "./src/config/db.js";
+import { clerkMiddleware } from "@clerk/express";
+
 const app = express();
 const __dirname = path.resolve(); //return path of your current project
+app.use(clerkMiddleware()); //this help to add auth in the req so i can use req.auth
+
 app.get("/api/health", (req, res) => {
   res.json({ message: "Success" });
 });
@@ -19,4 +24,5 @@ if (ENV.NODE_ENV === "production") {
 }
 app.listen(ENV.PORT, () => {
   console.log("Server is running");
+  connectDB();
 });
