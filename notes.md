@@ -113,3 +113,42 @@ import { functions, inngest } from "./src/config/inngest.js";
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 halaa bruh aala ingesst baaml new application
+
+now clerk send event to inngest and from inngest to mongodb
+
+now baaml al models the the routes
+
+now krmal l adminm ensa het
+const router = Router();
+router.post("/products", protectRoute, adminOnly, createProduct);
+export default router;
+the middles wars
+
+multer middlware 2:33:00
+
+baaml handle input change in frontend.
+b2ra al file targe.file[0] thenbntor yaaml upload alaa imagekit
+const file = event.target.files[0];
+if (!file) return;
+console.log("upload ");
+const data = await uploadFile(file, file.name);
+
+      setData((prev) => ({
+        ...prev,
+        image: data?.url,
+      }))
+
+hun function al uploadFile h taatene ldata lal image yali nzl bekhod al url
+w bsayvu bl image
+
+btrj3e fe file blutils lal imagekit huwi yali byaaml upload
+
+bs byakhod permission mnbackend yali byaati token.expirey
+then return for me like ths
+{
+"url": "https://ik.imagekit.io/amar/products/image.jpg",
+"fileId": "abc123",
+"name": "image.jpg"
+} and this then i read url from method and add it to backend
+
+yane bs backend byaatene tokn w expirey api whd w frontend baandi file whd blutils le brdle al url w bhtu b state wbbaatu lal add
