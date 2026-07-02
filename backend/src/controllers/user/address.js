@@ -11,7 +11,17 @@ export const addAddress = async (req, res) => {
       phoneNumber,
       isDefault,
     } = req.body;
-
+    if (
+      !label ||
+      !fullName ||
+      !streetAddress ||
+      !city ||
+      !state ||
+      !zipCode ||
+      !phoneNumber
+    ) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
     const user = req.user;
     if (isDefault) {
       user.addresses.forEach((addr) => {

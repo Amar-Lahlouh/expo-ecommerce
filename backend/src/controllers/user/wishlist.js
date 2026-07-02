@@ -43,9 +43,11 @@ export const removeFromWishList = async (req, res) => {
 
 export const getWishlist = async (req, res) => {
   try {
+    //where wishlist is an array of ids not data
+    const user = await User.findById(req.user._id).populate("wishlist");
     return res.status(200).json({
       message: "wishlist sent successfully",
-      wishlist: req.user.wishlist,
+      wishlist: user,
     });
   } catch (err) {
     console.log(err);
