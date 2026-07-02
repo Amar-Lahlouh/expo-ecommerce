@@ -66,8 +66,8 @@ export const updateProduct = async (req, res) => {
 
     if (name) updateData.name = name;
     if (description) updateData.description = description;
-    if (price) updateData.price = price;
-    if (stock) updateData.stock = stock;
+    if (price !== undefined) updateData.price = price;
+    if (stock !== undefined) updateData.stock = stock;
     if (category) updateData.category = category;
     if (image && Array.isArray(image)) {
       updateData.image = image;

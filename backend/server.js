@@ -6,6 +6,7 @@ import { clerkMiddleware } from "@clerk/express";
 import inngestHandler from "./src/api/inngest.js";
 import ImageKitRouter from "./src/routes/imagekit.js";
 import AdminRoute from "./src/routes/admin/admin.js";
+import UserRoute from "./src/routes/user/user.js";
 const app = express();
 const __dirname = path.resolve(); //return path of your current project
 
@@ -19,6 +20,7 @@ app.get("/api/health", (req, res) => {
 
 app.use("/imagekit/auth", ImageKitRouter);
 app.use("/api/admin", AdminRoute);
+app.use("/api/users", UserRoute);
 //make our app ready for deployment
 if (ENV.NODE_ENV === "production") {
   //Any request that is NOT an API route AND NOT a real static file, is sent to index.html.
